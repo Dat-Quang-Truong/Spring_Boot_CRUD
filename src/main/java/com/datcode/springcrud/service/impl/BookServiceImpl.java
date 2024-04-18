@@ -44,6 +44,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void deleteBook(Integer id) {
+        // check id
         Book book = bookRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Invalid book id" + id));
         bookRepository.delete(book);
